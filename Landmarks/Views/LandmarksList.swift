@@ -9,8 +9,17 @@ import SwiftUI
 
 struct LandmarksList: View {
     var body: some View {
-        List(DataService.shared.landmarks) { landmark in
-            LandmarkRow(landmark: landmark)
+        NavigationSplitView {
+            List(DataService.shared.landmarks) { landmark in
+                NavigationLink {
+                    LandmarkDetails()
+                } label: {
+                    LandmarkRow(landmark: landmark)
+                }
+            }
+            .navigationTitle("Landmarks")
+        } detail: {
+            Text("Select a landmark")
         }
     }
 }
