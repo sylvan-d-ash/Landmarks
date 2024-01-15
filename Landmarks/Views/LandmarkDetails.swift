@@ -13,42 +13,46 @@ struct LandmarkDetails: View {
         static let mapHeight: CGFloat = 300
     }
 
+    var landmark: Landmark
+
     var body: some View {
-        VStack {
-            MapView()
+        ScrollView {
+            MapView(coordinate: landmark.locationCoordinate)
                 .frame(height: Dimensions.mapHeight)
 
-            CircleImage()
+            CircleImage(image: landmark.image)
                 .frame(height: Dimensions.imageHeight)
                 .offset(y: -Dimensions.imageHeight/2)
                 .padding(.bottom, -Dimensions.imageHeight/2)
 
             VStack(alignment: .leading) {
-                Text("Turtle Rock")
+                Text(landmark.name)
                     .font(.title)
                     .foregroundColor(Color.pink)
 
                 HStack {
-                    Text("Joshua Tree National Park")
+                    Text(landmark.park)
                     Spacer()
-                    Text("California")
+                    Text(landmark.state)
                 }
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
 
                 Divider()
 
-                Text("About Turtle Rock")
+                Text("About \(landmark.name)")
                     .font(.title2)
-                Text("Description text goes here...")
+                Text(landmark.description)
             }
             .padding()
 
             Spacer()
         }
+        .navigationTitle(landmark.name)
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
 #Preview {
-    LandmarkDetails()
+    LandmarkDetails(landmark: DataService.shared.landmarks[0])
 }
