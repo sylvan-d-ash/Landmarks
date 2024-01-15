@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import CoreLocation
 
-struct Landmark: Hashable, Decodable {
+struct Landmark: Identifiable, Hashable, Decodable {
     struct Coordinates: Hashable, Decodable {
         let latitude: Double
         let longitude: Double
