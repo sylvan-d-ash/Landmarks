@@ -29,16 +29,16 @@ struct LandmarkRow: View {
 }
 
 #Preview("Turtle Rock") {
-    LandmarkRow(landmark: DataService.shared.landmarks[0])
+    LandmarkRow(landmark: DataService().landmarks[0])
 }
 
 #Preview("Silver Salmon") {
-    LandmarkRow(landmark: DataService.shared.landmarks[1])
+    LandmarkRow(landmark: DataService().landmarks[1])
 }
 
 #Preview("Grouped") {
     Group {
-        LandmarkRow(landmark: DataService.shared.landmarks[2])
-        LandmarkRow(landmark: DataService.shared.landmarks[3])
+        LandmarkRow(landmark: DataService().landmarks[2])
+        LandmarkRow(landmark: DataService().landmarks[3])
     }
 }

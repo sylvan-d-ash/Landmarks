@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct LandmarksList: View {
+    @Environment(DataService.self) var dataService
     @State private var showFavouritesOnly = false
 
     private var filteredLandmarks: [Landmark] {
-        let landmarks = DataService.shared.landmarks
+        let landmarks = dataService.landmarks
         return landmarks.filter({ !showFavouritesOnly || $0.isFavorite })
     }
 
@@ -40,4 +41,5 @@ struct LandmarksList: View {
 
 #Preview {
     LandmarksList()
+        .environment(DataService())
 }

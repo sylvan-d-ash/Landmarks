@@ -7,14 +7,11 @@
 
 import Foundation
 
+@Observable
 class DataService {
-    static let shared = DataService()
+    var landmarks: [Landmark] = load("landmarkData.json")
 
-    private init() {}
-
-    lazy var landmarks: [Landmark] = load("landmarkData.json")
-
-    func load<T: Decodable>(_ filename: String) -> T {
+    static func load<T: Decodable>(_ filename: String) -> T {
         guard let file = Bundle.main.url(forResource: filename, withExtension: nil) else {
             fatalError("Couldn't find \(filename) in main bundle")
         }
