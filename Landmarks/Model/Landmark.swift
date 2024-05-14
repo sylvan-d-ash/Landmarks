@@ -27,6 +27,7 @@ struct Landmark: Identifiable, Hashable, Decodable {
     let state: String
     let description: String
     let category: Category
+    let isFeatured: Bool
     var isFavorite: Bool
 
     private let imageName: String
