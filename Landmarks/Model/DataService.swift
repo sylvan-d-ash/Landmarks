@@ -11,6 +11,10 @@ import Foundation
 class DataService {
     var landmarks: [Landmark] = load("landmarkData.json")
 
+    var categories: [String: [Landmark]] {
+        Dictionary(grouping: landmarks, by: { $0.category.rawValue })
+    }
+
     static func load<T: Decodable>(_ filename: String) -> T {
         guard let file = Bundle.main.url(forResource: filename, withExtension: nil) else {
             fatalError("Couldn't find \(filename) in main bundle")
