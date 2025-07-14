@@ -1,6 +1,6 @@
 # Landmarks
-A practice SwiftUI following the Landmarks app tutorial released by Apple
 
+The project is a practice SwiftUI application based on Apple's Landmarks tutorial. It includes features such as tab navigation, landmark details viewing, and favoriting functionality. The app demonstrates the use of SwiftUI's state management and navigation capabilities, providing a practical learning experience in building iOS applications using Apple's latest UI framework.
 
 ## Screenshots
 
